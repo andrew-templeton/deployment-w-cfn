@@ -175,7 +175,7 @@ Check your work against the template below, or just save the below template to d
 
 ```
 {
-	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Description": "My Learn The Cloud Labs 2-Tier Scalable API Template",
 	"Parameters": {
 		"VPCAZ": {
 			"Type": "AWS::EC2::AvailabilityZone::Name",

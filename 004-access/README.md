@@ -191,7 +191,7 @@ That's the end of the IAM and Security Group Resources for our Stack Template, a
 
 ```javascript
 {
-	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Description": "My Learn The Cloud Labs 2-Tier Scalable API Template",
 	"Parameters": {
 		"VPCAZ": {
 			"Type": "AWS::EC2::AvailabilityZone::Name",

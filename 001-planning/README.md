@@ -37,7 +37,7 @@ Since we have the diagram above for reference, we can begin planning our CloudFo
 
 ```javascript
 {
-	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Description": "My Learn The Cloud Labs 2-Tier Scalable API Template",
 	"Parameters": {
 		// We will need some configurability too
 	},
@@ -55,7 +55,7 @@ First, we should plan for a **VPC** with **Private and Public Subnets**...:
 
 ```javascript
 {
-	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Description": "My Learn The Cloud Labs 2-Tier Scalable API Template",
 	"Parameters": {},
 	"Resources": {
 		"VPC": {},
@@ -138,7 +138,7 @@ If you want to check your work, the entire planning phase for the **Resources** 
 
 ```javascript
 {
-	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Description": "My Learn The Cloud Labs 2-Tier Scalable API Template",
 	"Parameters": {},
 	"Resources": {
 		"VPC": {},

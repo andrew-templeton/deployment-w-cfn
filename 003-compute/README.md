@@ -296,7 +296,7 @@ If you would like to check your work thus far, refer to the complete work-in-pro
 
 ```javascript
 {
-	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Description": "My Learn The Cloud Labs 2-Tier Scalable API Template",
 	"Parameters": {
 		"VPCAZ": {
 			"Type": "AWS::EC2::AvailabilityZone::Name",
