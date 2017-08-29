@@ -1,0 +1,69 @@
+{
+	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Parameters": {
+		"VPCAZ": {
+			"Type": "AWS::EC2::AvailabilityZone::Name",
+			"Description": "The Availability Zone to use for the simple VPC."
+		}
+	},
+	"Resources": {
+		"VPC": {
+			"Type": "AWS::EC2::VPC",
+			"Properties": {
+				"CidrBlock": "10.0.0.0/16"
+			}
+		},
+		"PublicSubnet": {
+			"DependsOn": [
+				"VPC"
+			],
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"AvailabilityZone": { "Ref": "VPCAZ" },
+				"CidrBlock": "10.0.0.0/24",
+				"MapPublicIpOnLaunch" : true,
+				"VpcId": { "Ref": "VPC" }
+			}
+		},
+		"PrivateSubnet": {
+			"DependsOn": [
+				"VPC"
+			],
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"AvailabilityZone": { "Ref": "VPCAZ" },
+				"CidrBlock": "10.0.1.0/24",
+				"VpcId": { "Ref": "VPC" }
+			}
+		},
+
+		"GatewayToInternet": {},
+		"NATInstance": {},
+		"RoutesForPublicSubnet": {},
+		"RoutesForPrivateSubnet": {},
+		"GenericNACL": {},
+
+		"GatewayAttachmentToVPC": {},
+		"RouteToGateway": {},
+		"RouteToNat": {},
+		"NACLInboundEntry": {},
+		"NACLOutboundEntry": {},
+		"NACLBindingForPublicSubnet": {},
+		"NACLBindingForPrivateSubnet": {},
+		"RoutesBindingForPublicSubnet": {},
+		"RoutesBindingForPrivateSubnet": {},
+
+
+		"LoadBalancer": {},
+		"InstancesGroup": {},
+		"InstancesConfig": {},
+		"DynamoTableForTodos": {},
+
+		"DynamoAccessRole": {},
+		"DynamoAccessInstanceProfile": {},
+
+		"LBToInstancesSecurityGroup": {},
+		"InternetToLBSecurityGroup": {},
+		"InstancesToNATSecurityGroup": {}
+	}
+}

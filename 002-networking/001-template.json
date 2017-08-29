@@ -1,0 +1,65 @@
+{
+	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Parameters": {},
+	"Resources": {
+		"VPC": {
+			"Type": "AWS::EC2::VPC",
+			"Properties": {
+				"CidrBlock": String,
+				"EnableDnsSupport": Boolean,
+				"EnableDnsHostnames": Boolean,
+				"InstanceTenancy": String,
+				"Tags": [ Resource Tag, ... ]
+			}
+		},
+		"PublicSubnet": {
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"AvailabilityZone": String,
+				"CidrBlock": String,
+				"MapPublicIpOnLaunch": Boolean,
+				"Tags": [ Resource Tag, ... ],
+				"VpcId": { "Ref": String }
+			}
+		},
+		"PrivateSubnet": {
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"AvailabilityZone": String,
+				"CidrBlock": String,
+				"MapPublicIpOnLaunch": Boolean,
+				"Tags": [ Resource Tag, ... ],
+				"VpcId": { "Ref": String }
+			}
+		},
+
+		"GatewayToInternet": {},
+		"NATInstance": {},
+		"RoutesForPublicSubnet": {},
+		"RoutesForPrivateSubnet": {},
+		"GenericNACL": {},
+
+		"GatewayAttachmentToVPC": {},
+		"RouteToGateway": {},
+		"RouteToNat": {},
+		"NACLInboundEntry": {},
+		"NACLOutboundEntry": {},
+		"NACLBindingForPublicSubnet": {},
+		"NACLBindingForPrivateSubnet": {},
+		"RoutesBindingForPublicSubnet": {},
+		"RoutesBindingForPrivateSubnet": {},
+
+
+		"LoadBalancer": {},
+		"InstancesGroup": {},
+		"InstancesConfig": {},
+		"DynamoTableForTodos": {},
+
+		"DynamoAccessRole": {},
+		"DynamoAccessInstanceProfile": {},
+
+		"LBToInstancesSecurityGroup": {},
+		"InternetToLBSecurityGroup": {},
+		"InstancesToNATSecurityGroup": {}
+	}
+}

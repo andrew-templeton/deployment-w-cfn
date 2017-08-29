@@ -1,0 +1,103 @@
+{
+	"Description": "My Cloud Academy Labs 2-Tier Scalable API Template",
+	"Parameters": {
+		"VPCAZ": {
+			"Type": "AWS::EC2::AvailabilityZone::Name",
+			"Description": "The Availability Zone to use for the simple VPC."
+		}
+	},
+	"Resources": {
+		"VPC": {
+			"Type": "AWS::EC2::VPC",
+			"Properties": {
+				"CidrBlock": "10.0.0.0/16"
+			}
+		},
+		"PublicSubnet": {
+			"DependsOn": [
+				"VPC"
+			],
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"AvailabilityZone": { "Ref": "VPCAZ" },
+				"CidrBlock": "10.0.0.0/24",
+				"MapPublicIpOnLaunch" : true,
+				"VpcId": { "Ref": "VPC" }
+			}
+		},
+		"PrivateSubnet": {
+			"DependsOn": [
+				"VPC"
+			],
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"AvailabilityZone": { "Ref": "VPCAZ" },
+				"CidrBlock": "10.0.1.0/24",
+				"VpcId": { "Ref": "VPC" }
+			}
+		},
+
+		"GatewayToInternet": {
+			"Type": "AWS::EC2::InternetGateway",
+			"Properties": {
+				"Tags": [ Resource Tag, ... ]
+			}
+		},
+		"NATInstance": {
+			"Type": "AWS::EC2::Instance",
+			"Properties": {
+				"AvailabilityZone": String,
+				"BlockDeviceMappings": [ EC2 Block Device Mapping, ... ],
+				"DisableApiTermination": Boolean,
+				"EbsOptimized": Boolean,
+				"IamInstanceProfile": String,
+				"ImageId": String,
+				"InstanceInitiatedShutdownBehavior": String,
+				"InstanceType": String,
+				"KernelId": String,
+				"KeyName": String,
+				"Monitoring": Boolean,
+				"NetworkInterfaces": [ EC2 Network Interface, ... ],
+				"PlacementGroupName": String,
+				"PrivateIpAddress": String,
+				"RamdiskId": String,
+				"SecurityGroupIds": [ String, ... ],
+				"SecurityGroups": [ String, ... ],
+				"SourceDestCheck": Boolean,
+				"SsmAssociations": [ SSMAssociation, ... ]
+				"SubnetId": String,
+				"Tags": [ Resource Tag, ... ],
+				"Tenancy": String,
+				"UserData": String,
+				"Volumes": [ EC2 MountPoint, ... ],
+				"AdditionalInfo": String
+			}
+		},
+		"RoutesForPublicSubnet": {},
+		"RoutesForPrivateSubnet": {},
+		"GenericNACL": {},
+
+		"GatewayAttachmentToVPC": {},
+		"RouteToGateway": {},
+		"RouteToNat": {},
+		"NACLInboundEntry": {},
+		"NACLOutboundEntry": {},
+		"NACLBindingForPublicSubnet": {},
+		"NACLBindingForPrivateSubnet": {},
+		"RoutesBindingForPublicSubnet": {},
+		"RoutesBindingForPrivateSubnet": {},
+
+
+		"LoadBalancer": {},
+		"InstancesGroup": {},
+		"InstancesConfig": {},
+		"DynamoTableForTodos": {},
+
+		"DynamoAccessRole": {},
+		"DynamoAccessInstanceProfile": {},
+
+		"LBToInstancesSecurityGroup": {},
+		"InternetToLBSecurityGroup": {},
+		"InstancesToNATSecurityGroup": {}
+	}
+}
